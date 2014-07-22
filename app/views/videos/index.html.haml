@@ -2,5 +2,6 @@
   .videos.row
     - @videos.each do |video|
       .video.col-sm-2
-        = link_to "", video_path, nil do #figure this out
+        = link_to "" do #set path when I have a show view
           %img(src="#{video.cover_image_url}")
+          
