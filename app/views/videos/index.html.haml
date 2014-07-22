@@ -1,0 +1,6 @@
+%article.video_category
+  .videos.row
+    - @videos.each do |video|
+      .video.col-sm-2
+        = link_to "", video_path, nil do #figure this out
+          %img(src="#{video.cover_image_url}")
