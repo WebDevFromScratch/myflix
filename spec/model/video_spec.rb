@@ -12,12 +12,6 @@ describe Video do
     # expect(Video.first).to eq(video) - different syntax used (based on solution vid)
     # - this is the style favored by rspec dev team, so from now on I'll be using this
   end
-end
 
-describe Category do
-  it 'saves itself' do
-    category = Category.new(name: "Comedy")
-    category.save
-    expect(Category.first).to eq(category)
-  end
+  it { should belong_to(:category) }
 end
