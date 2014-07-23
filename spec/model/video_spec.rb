@@ -14,21 +14,7 @@ describe Video do
     # - this is the style favored by rspec dev team, so from now on I'll be using this
   end
 
-  it { should belong_to(:category) } #seems like I jumped ahead finding 'shoulda'
-
-  it 'fails validation when no title' do
-    no_title = Video.new(title: "", description: "Example description")
-    house = Video.new(title: "House", description: "House solves puzzles")
-
-    expect(no_title).to have(1).errors_on(:title)
-    expect(house).to have(0).errors_on(:title)
-  end
-
-  it 'fails validation when no description' do
-    no_description = Video.new(title: "Example title", description: "")
-    house = Video.new(title: "House", description: "House solves puzzles")
-    
-    expect(no_description).to have(1).errors_on(:description)
-    expect(house).to have(0).errors_on(:description)
-  end
+  it { should belong_to(:category) }
+  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:description) }
 end
