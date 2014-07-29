@@ -1,7 +1,8 @@
 class Category < ActiveRecord::Base
-  has_many :videos, -> { order("title") } #this is just added for default order
+  has_many :videos, -> { order("created_at DESC") } #this is just added for default order
+  #has_many :videos, order: "created_at DESC"
 
-  def self.recent_videos(cat_id)
-    Video.where("category_id LIKE ?", "#{cat_id}").order('created_at DESC').first(6)
+  def recent_videos
+    videos.first(6)
   end
 end
