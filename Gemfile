@@ -9,6 +9,9 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 
+gem 'bootstrap_form' #a form builder
+gem 'bcrypt', '~> 3.1.7' #for has_secure_password
+
 group :development do
   gem 'sqlite3'
   gem 'pry'
