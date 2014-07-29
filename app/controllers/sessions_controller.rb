@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  def index; end
-
   def new
   end
 
@@ -14,5 +12,10 @@ class SessionsController < ApplicationController
       flash[:danger] = "Wrong email and/or password"
       redirect_to sign_in_path
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
   end
 end
