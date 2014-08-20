@@ -11,6 +11,8 @@ gem 'jquery-rails'
 
 gem 'bootstrap_form' #a form builder
 gem 'bcrypt', '~> 3.1.7' #for has_secure_password
+gem 'fabrication' #fabrication gem for tests
+gem 'faker' #for tests
 
 group :development do
   gem 'sqlite3'
