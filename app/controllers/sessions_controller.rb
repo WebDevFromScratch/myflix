@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    redirect_to home_path if current_user
   end
 
   def create
@@ -8,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "You have successfully logged in"
-      redirect_to home_path #to root path later? or do some redirects based on logged in
+      redirect_to home_path
     else
       flash[:danger] = "Wrong email and/or password"
       redirect_to sign_in_path
