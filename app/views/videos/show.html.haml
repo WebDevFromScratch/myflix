@@ -6,15 +6,13 @@
       .video_info.col-sm-3
         %header
           %h3= @video.title
-          %span
-            = "%.1f" % (@video.reviews.map(&:rating).sum.to_f / @video.reviews.count.to_f).to_s + "/5.0" #maybe extract to a helper method somewhere?
+          %span= "%.1f" % (@video.reviews.map(&:rating).sum.to_f / @video.reviews.count.to_f).to_s + "/5.0" #maybe extract to a helper method somewhere?
         %p= @video.description
         .actions
           %a.btn.btn-primary(href="") Watch Now
           %a.btn.btn-default(href="") + My Queue
           -# hardcoded for now
 
--#everything below is hardcoded for now as well
 %section.reviews.container
   .row
     .col-sm-10.col-sm-offset-1
@@ -29,19 +27,15 @@
           .col-sm-8
             = f.form_group do
               = f.submit "Submit"
-        -#don't have a 'cancel' yet
+        -#doesn't have a 'cancel' yet
       %header
-        %h3 User Reviews
-        -#later put in number of the reviews up there
+        %h3 User Reviews (#{@video.reviews.count})
       %ul
         - @video.reviews.reverse.each do |review| #change to only limited number of reviews later on
           %article.review
             %li.row
               .col-sm-2
-                %span
-                  = "Rating: " + review.rating.to_s + " / 5"
-                %p
-                  = "by " + review.user.full_name #change to link later on
+                %span= "Rating: " + review.rating.to_s + " / 5"
+                %p= "by " + review.user.full_name #change to link later on
               .col-sm-8
-                %p
-                  = review.text #could also change this all to a partial I suppose, but don'd see a need just yet
+                %p= review.text #could also change this all to a partial I suppose, but don'd see a need just yet
