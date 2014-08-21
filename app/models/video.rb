@@ -8,4 +8,12 @@ class Video < ActiveRecord::Base
     return [] if search_term.empty?
     where("title LIKE ?", "%#{search_term}%").order('created_at DESC')
   end
+
+  def average_rating
+    if reviews.count == 0
+      "0.0"
+    else
+      "%.1f" % (reviews.map(&:rating).sum.to_f / reviews.count.to_f).to_s
+    end
+  end
 end

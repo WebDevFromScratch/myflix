@@ -6,7 +6,7 @@
       .video_info.col-sm-3
         %header
           %h3= @video.title
-          %span= "%.1f" % (@video.reviews.map(&:rating).sum.to_f / @video.reviews.count.to_f).to_s + "/5.0" #maybe extract to a helper method somewhere?
+          %span=  "#{@video.average_rating}/5.0" #average_rating method in the video model
         %p= @video.description
         .actions
           %a.btn.btn-primary(href="") Watch Now
