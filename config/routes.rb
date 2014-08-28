@@ -13,6 +13,10 @@ Myflix::Application.routes.draw do
       get 'search', to: 'videos#search'
     end
 
+    member do
+      get 'my_queue', to: 'queues#index'
+    end
+
     resources :reviews, only: [:create]
   end
   resources :categories, only: [:show]

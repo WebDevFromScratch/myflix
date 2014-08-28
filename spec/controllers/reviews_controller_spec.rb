@@ -41,8 +41,6 @@ describe ReviewsController do
         expect(Review.count).to eq(0)
       end
 
-      #it "shows errors" #will I need to check this? should be taken care of by bootstrap_form_for
-
       it "renders the videos/show template" do
         post :create, video_id: video.id, review: Fabricate.attributes_for(:review, text: "")
         expect(response).to render_template "videos/show"
