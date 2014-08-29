@@ -7,7 +7,7 @@ Myflix::Application.routes.draw do
   delete 'sign_out', to: 'sessions#destroy' #delete?
   get 'register', to: 'users#new'
   get 'home', to: 'videos#index'
-  get 'my_queue', to: 'queues#index'
+  get 'my_queue', to: 'queue_items#index'
 
   resources :videos, only: [:index, :show] do
     collection do
